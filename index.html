@@ -16,7 +16,7 @@
     <main
         class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full min-h-[390px] sm:min-h-[400px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[410px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
         <template x-if="!submitted">
-            <form @submit.prevent="submitted = rating !== ''; error = !rating">
+            <form @submit.prevent="submitted = rating !== ''; error = !rating" aria-label="Rating form.">
                 <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
                     <img src="/star.svg" alt="Orange rating star.">
                 </div>
@@ -27,7 +27,7 @@
                 </p>
                 <fieldset x-id="['rating']" :aria-activedescendant="$id('rating', rating)"
                     class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
-                    <legend>Give us a rating</legend>
+                    <legend class="hidden" aria-hidden="false">Give us a rating</legend>
                     <template x-for="i in 5">
                         <div>
                             <label :class="{ 
@@ -51,7 +51,7 @@
             </form>
         </template>
         <template x-if="submitted">
-            <div class="text-center">
+            <section class="text-center" aria-label="Thank you step.">
                 <img src="/thank-you.svg" alt="Form's rating being submitted and stored." class="mx-auto">
                 <p class="text-orange-500 bg-slate-700 rounded-full inline-block py-2 px-4 mt-7 text-[15px] sm:text-base">
                     You selected 
@@ -61,7 +61,7 @@
                 <h2 class="text-white text-2xl sm:text-3xl font-bold pt-7">Thank you!</h2>
                 <p class="text-slate-400 pt-3 text-[15px] sm:text-base">We appreciate you taking the time to give a rating. If you ever need more
                     support, don't hesitate to get in touch!</p>
-            </div>
+            </section>
         </template>
     </main>
 
