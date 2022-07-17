@@ -43,11 +43,7 @@ Users should be able to:
 - [Tailwind](https://tailwindcss.com/) - CSS framework
 - [Alpine.js](https://alpinejs.dev/) - JS library
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ## Author
 
 - Website - [Lee Connelly](https://leeconnelly.dev)
 - Frontend Mentor - [@LeeConnelly12](https://www.frontendmentor.io/profile/LeeConnelly12)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
