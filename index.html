@@ -18,7 +18,7 @@
         <template x-if="!submitted">
             <form @submit.prevent="submitted = rating !== ''; error = !rating">
                 <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
-                    <img src="/star.svg" alt="">
+                    <img src="/star.svg" alt="Orange rating star.">
                 </div>
                 <h1 class="text-white text-2xl sm:text-3xl font-bold pt-6 sm:pt-7">How did we do?</h1>
                 <p class="text-slate-400 pt-4 text-[15px] sm:text-base">
@@ -51,7 +51,7 @@
         </template>
         <template x-if="submitted">
             <div class="text-center">
-                <img src="/thank-you.svg" alt="" class="mx-auto">
+                <img src="/thank-you.svg" alt="Form's rating being submitted and stored." class="mx-auto">
                 <p class="text-orange-500 bg-slate-700 rounded-full inline-block py-2 px-4 mt-7 text-[15px] sm:text-base">
                     You selected 
                     <span x-text="rating"></span> 
