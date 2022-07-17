@@ -28,8 +28,10 @@
                         <label 
                             :class="{ 'bg-orange-500 text-white': i == rating, 'hover:bg-slate-500 hover:text-white': i != rating }" 
                             x-text="i"
-                            class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer"
                             :for="`rating${i}`"
+                            @keyup.space="rating = i"
+                            class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-500"
+                            tabindex="0"
                         ></label>
                         <input type="radio" :value="i" :id="`rating${i}`" class="hidden" x-model="rating">
                     </div>
