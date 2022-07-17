@@ -14,7 +14,7 @@
     class="antialiased bg-slate-800 min-h-screen grid place-items-center px-4">
 
     <main
-        class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full min-h-[390px] sm:min-h-[400px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[410px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
+        class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-3xl w-full min-h-[390px] sm:min-h-[400px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[410px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
         <template x-if="!submitted">
             <form @submit.prevent="submitted = rating !== ''; error = !rating" aria-label="Rating form.">
                 <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
@@ -35,7 +35,7 @@
                                 'hover:bg-slate-500 hover:text-white': i != rating,
                                 'border-2 border-red-700 border-opacity-50': error && i != rating
                             }" x-text="i" :for="$id('rating', i)" @keyup.space="rating = i"
-                                class="rounded-full outline-none bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:border-2 focus-visible:border-slate-500 sm:text-lg"
+                                class="rounded-full outline-none bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:border-2 focus-visible:border-slate-500 sm:text-base"
                                 tabindex="0"></label>
                             <input type="radio" :value="i" :id="$id('rating', i)" class="hidden" x-model="rating">
                         </div>
@@ -45,7 +45,7 @@
                     <div class="text-red-600 pt-3">Please select a rating.</div>
                 </template>
                 <button type="submit"
-                    class="bg-orange-500 text-white font-bold uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-9 hover:bg-white hover:text-orange-500 focus:bg-white focus:text-orange-500 outline-none">
+                    class="bg-orange-500 text-white font-bold uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-10 hover:bg-white hover:text-orange-500 focus:bg-white focus:text-orange-500 outline-none">
                     Submit
                 </button>
             </form>
