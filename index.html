@@ -10,7 +10,7 @@
   </head>
   <body x-data="{ submitted: false, rating: '', error: false }" class="antialiased bg-slate-800 min-h-screen grid place-items-center px-4">
     
-    <main class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full h-[390px] sm:h-[420px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[400px] mx-auto relative">
+    <main class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full min-h-[390px] sm:min-h-[420px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[400px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
         <form 
             @submit.prevent="submitted = rating !== ''; error = !rating" 
             x-show="submitted === false"
@@ -41,6 +41,9 @@
                     </div>
                 </template>
             </fieldset>
+            <template x-if="error">
+                <div class="text-red-500 pt-3">Please select a rating.</div>
+            </template>
             <button type="submit" class="bg-orange-500 text-white font-bold uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-9 hover:bg-white hover:text-orange-500">
                 Submit
             </button>
@@ -51,9 +54,6 @@
             <h2 class="text-white text-2xl font-bold pt-7">Thank you!</h2>
             <p class="text-slate-400 pt-3">We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
         </div>
-        <template x-if="error">
-            <div class="text-red-500 pt-3 absolute top-full left-0 pl-6">Please select a rating.</div>
-        </template>
     </main>
 
   </body>
