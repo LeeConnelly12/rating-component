@@ -8,8 +8,44 @@
     <script type="module" src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="antialiased bg-slate-800 min-h-screen grid place-items-center px-4">
+    
+    <main>
+        <form class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full px-4 sm:px-8 pt-6 sm:pt-8 pb-8 max-w-[355px] sm:max-w-[400px] mx-auto">
+            <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
+                <img src="/star.svg" alt="">
+            </div>
+            <h1 class="text-white text-2xl font-bold pt-6 sm:pt-7">How did we do?</h1>
+            <p class="text-slate-400 pt-4 text-[15px]">
+                Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
+            </p>
+            <fieldset class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
+                <label class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center">
+                    1
+                    <input type="radio" value="1" class="hidden">
+                </label>
+                <label class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center">
+                    2
+                    <input type="radio" value="2" class="hidden">
+                </label>
+                <label class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center">
+                    3
+                    <input type="radio" value="3" class="hidden">
+                </label>
+                <label class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center">
+                    4
+                    <input type="radio" value="4" class="hidden">
+                </label>
+                <label class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center">
+                    5
+                    <input type="radio" value="5" class="hidden">
+                </label>
+            </fieldset>
+            <button type="submit" class="bg-orange-500 text-white uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-9">
+                Submit
+            </button>
+        </form>
+    </main>
 
   </body>
 </html>
