@@ -22,18 +22,18 @@
             <p class="text-slate-400 pt-4 text-[15px]">
                 Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
             </p>
-            <fieldset class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
+            <fieldset x-id="['rating']" :aria-activedescendant="$id('rating', rating)" class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
                 <template x-for="i in 5">
                     <div>
                         <label 
                             :class="{ 'bg-orange-500 text-white': i == rating, 'hover:bg-slate-500 hover:text-white': i != rating }" 
                             x-text="i"
-                            :for="`rating${i}`"
+                            :for="$id('rating', i)"
                             @keyup.space="rating = i"
                             class="rounded-full bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-500"
                             tabindex="0"
                         ></label>
-                        <input type="radio" :value="i" :id="`rating${i}`" class="hidden" x-model="rating">
+                        <input type="radio" :value="i" :id="$id('rating', i)" class="hidden" x-model="rating">
                     </div>
                 </template>
             </fieldset>
