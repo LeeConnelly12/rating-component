@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rating Component Challenge</title>
     <script type="module" src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
-  </head>
-  <body x-data="{ submitted: false, rating: '', error: false }" class="antialiased bg-slate-800 min-h-screen grid place-items-center px-4">
-    
-    <main class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full min-h-[390px] sm:min-h-[420px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[400px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
-        <form 
-            @submit.prevent="submitted = rating !== ''; error = !rating" 
-            x-show="!submitted"
-        >
-            <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
-                <img src="/star.svg" alt="">
-            </div>
-            <h1 class="text-white text-2xl font-bold pt-6 sm:pt-7">How did we do?</h1>
-            <p class="text-slate-400 pt-4 text-[15px]">
-                Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
-            </p>
-            <fieldset x-id="['rating']" :aria-activedescendant="$id('rating', rating)" class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
-                <template x-for="i in 5">
-                    <div>
-                        <label 
-                            :class="{ 
+</head>
+
+<body x-data="{ submitted: false, rating: '', error: false }"
+    class="antialiased bg-slate-800 min-h-screen grid place-items-center px-4">
+
+    <main
+        class="bg-gradient-to-t from-slate-900 to-gray-900 rounded-xl w-full min-h-[390px] sm:min-h-[420px] flex items-center px-4 sm:px-8 max-w-[355px] sm:max-w-[400px] mx-auto pt-6 sm:pt-8 pb-8 sm:pb-9">
+        <template x-if="!submitted">
+            <form @submit.prevent="submitted = rating !== ''; error = !rating">
+                <div class="bg-slate-700 rounded-full w-12 h-12 grid place-items-center">
+                    <img src="/star.svg" alt="">
+                </div>
+                <h1 class="text-white text-2xl font-bold pt-6 sm:pt-7">How did we do?</h1>
+                <p class="text-slate-400 pt-4 text-[15px]">
+                    Please let us know how we did with your support request. All feedback is appreciated to help us
+                    improve our offering!
+                </p>
+                <fieldset x-id="['rating']" :aria-activedescendant="$id('rating', rating)"
+                    class="flex justify-between text-slate-500 font-bold pt-6 sm:pt-7">
+                    <template x-for="i in 5">
+                        <div>
+                            <label :class="{ 
                                 'bg-orange-500 text-white': i == rating, 
                                 'hover:bg-slate-500 hover:text-white': i != rating,
                                 'border-2 border-red-700 border-opacity-50': error && i != rating
-                            }" 
-                            x-text="i"
-                            :for="$id('rating', i)"
-                            @keyup.space="rating = i"
-                            class="rounded-full outline-none bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:border-2 focus-visible:border-slate-500"
-                            tabindex="0"
-                        ></label>
-                        <input type="radio" :value="i" :id="$id('rating', i)" class="hidden" x-model="rating">
-                    </div>
+                            }" x-text="i" :for="$id('rating', i)" @keyup.space="rating = i"
+                                class="rounded-full outline-none bg-slate-700 w-12 h-12 grid place-items-center hover:cursor-pointer focus-visible:border-2 focus-visible:border-slate-500"
+                                tabindex="0"></label>
+                            <input type="radio" :value="i" :id="$id('rating', i)" class="hidden" x-model="rating">
+                        </div>
+                    </template>
+                </fieldset>
+                <template x-if="error">
+                    <div class="text-red-600 pt-3">Please select a rating.</div>
                 </template>
-            </fieldset>
-            <template x-if="error">
-                <div class="text-red-600 pt-3">Please select a rating.</div>
-            </template>
-            <button type="submit" class="bg-orange-500 text-white font-bold uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-9 hover:bg-white hover:text-orange-500">
-                Submit
-            </button>
-        </form>
-        <div x-show="submitted" x-cloak class="text-center">
-            <img src="/thank-you.svg" alt="" class="mx-auto">
-            <p class="text-orange-500 bg-slate-700 rounded-full inline-block py-2 px-4 mt-7">You selected <span x-text="rating"></span> out of 5</p>
-            <h2 class="text-white text-2xl font-bold pt-7">Thank you!</h2>
-            <p class="text-slate-400 pt-3">We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
-        </div>
+                <button type="submit"
+                    class="bg-orange-500 text-white font-bold uppercase tracking-[0.2em] rounded-full py-3 w-full mt-8 sm:mt-9 hover:bg-white hover:text-orange-500">
+                    Submit
+                </button>
+            </form>
+        </template>
+        <template x-if="submitted">
+            <div class="text-center">
+                <img src="/thank-you.svg" alt="" class="mx-auto">
+                <p class="text-orange-500 bg-slate-700 rounded-full inline-block py-2 px-4 mt-7">You selected <span
+                        x-text="rating"></span> out of 5</p>
+                <h2 class="text-white text-2xl font-bold pt-7">Thank you!</h2>
+                <p class="text-slate-400 pt-3">We appreciate you taking the time to give a rating. If you ever need more
+                    support, don't hesitate to get in touch!</p>
+            </div>
+        </template>
     </main>
 
-  </body>
+</body>
+
 </html>
